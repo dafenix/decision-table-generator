@@ -4,22 +4,22 @@ namespace DecisionMatrix
 {
     class Decision
     {
-        public int _decisionId { get; set; }
+        public int DecisionId { get; set; }
 
-        public string _description { get; set; }
+        public string Description { get; set; }
 
-        public List<Choice> _Choices { get; set; } = new List<Choice>();
+        public List<Choice> Choices { get; set; } = new List<Choice>();
 
         public override string ToString()
         {
             var cStr = "";
-            foreach (var choice in _Choices)
+            foreach (var choice in Choices)
             {
                 cStr += choice;
                 cStr += "\n";
             }
 
-            return $"{_decisionId} : {_description}, \n\t choices: {cStr}";
+            return $"{DecisionId} : {Description}, \n\t choices: {cStr}";
         }
     }
 }

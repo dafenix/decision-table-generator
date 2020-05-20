@@ -13,11 +13,10 @@ namespace DecisionMatrix
 
         public string ParseDecisionDescription(string rawInput)
         {
-            var d2c = rawInput.Split(":");
-            return d2c[0];
+            var parts = rawInput.Split(":");
+            return parts[0];
         }
         
-        // Link - choice1:decisionName1
         public int ParseDecisionId(string rawLinkInput)
         {
             var choicesAndDecisionId = rawLinkInput.Split(":");
@@ -26,8 +25,8 @@ namespace DecisionMatrix
 
         public string[] ParseChoices(string rawInput)
         {
-            var d2c = rawInput.Split(":");
-            var rawChoices = d2c[1].Split("/");
+            var parts = rawInput.Split(":");
+            var rawChoices = parts[1].Split("/");
             return rawChoices;
         }
     }

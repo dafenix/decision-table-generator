@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DecisionMatrix
 {
-    class Persistance
+    class Persistence
     {
         public void Save(string rawInput, string content)
         {

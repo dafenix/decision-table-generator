@@ -6,17 +6,25 @@ namespace DecisionMatrix
 {
     class DecisionTable
     {
-        private Dictionary<int, List<Choice>> _tab;
-        private List<Decision> _decisions;
-        private Parser _parser = new Parser();
+        private readonly Parser _parser;
+        private readonly Dictionary<int, List<Choice>> _tab;
+        private readonly List<Decision> _decisions = new List<Decision>();
+
+        private int _choiceSeq;
+        private int _decisionSeq;
+
+        public DecisionTable(Parser parser)
+        {
+            _parser = parser;
+            _tab = new Dictionary<int, List<Choice>>();
+        }
         public void Create()
         {
-            _tab = new Dictionary<int, List<Choice>>();
-            _decisions = _decisions.ToList();
+            _tab.Clear();
             var i = 0;
             foreach (var dec in _decisions)
             {
-                var choices = new List<Choice>(dec._Choices);
+                var choices = new List<Choice>(dec.Choices);
 
                 _tab.Add(i, choices);
 
@@ -43,14 +51,8 @@ namespace DecisionMatrix
         {
             for (int d = 0; d < _tab.Count; d++)
             {
-                var res = $"{_decisions[d]._description}({_decisions[d]._decisionId})|";
-                foreach (var choice in _tab[d])
-                {
-                    res += choice._choice;
-                    res += "|";
-                }
-
-                ;
+                var res = $"{_decisions[d].Description}({_decisions[d].DecisionId})|";
+                res += string.Join("|", _tab[d].Select(choice => choice.ChoiceText));
                 Console.WriteLine(res);
             }
         }
@@ -66,16 +68,13 @@ namespace DecisionMatrix
                 {
                     choice = FindForId(dec, int.Parse(part));
 
-                    if (choice == null)
-                    {
-                        break;
-                    }
+                    if (choice == null) { break; }
                 }
 
                 if (choice != null)
                 {
-                    choice._when = _decisions.Find(d => d._decisionId == _parser.ParseDecisionId(rawInput));
-                    Console.WriteLine($"Added decision {choice._when} to choice {choice}");
+                    choice.When = _decisions.Find(d => d.DecisionId == _parser.ParseDecisionId(rawInput));
+                    Console.WriteLine($"Added decision {choice.When} to choice {choice}");
                     break;
                 }
             }
@@ -83,9 +82,8 @@ namespace DecisionMatrix
         
         private Choice FindForId(Decision dec, int id)
         {
-            return dec._Choices.Find(c => c._id == id);
+            return dec.Choices.Find(c => c.Id == id);
         }
-        
 
         private List<T> DoubleElements<T>(List<T> doubleThis, int count = 1)
         {
@@ -105,25 +103,68 @@ namespace DecisionMatrix
             return res;
         }
 
-        public void Clear()
+        public void RemoveDecisions()
         {
             _decisions.Clear();
             _tab.Clear();
+            Console.WriteLine("Removed all decisions");
         }
 
-        public void Add(Decision dec)
+        public void RemoveDecision(string rawInput)
         {
+            var keyWordAndPossibleId = rawInput.Split(" ");
+            if (keyWordAndPossibleId.Length > 1)
+            {
+                int.TryParse(keyWordAndPossibleId[1], out var decId);
+                RemoveDecision(decId);
+                return;
+            }
+
+            RemoveDecisions();
+        }
+        private void RemoveDecision(int id)
+        {
+            var decision = Find(id);
+            if (decision == null)
+            {
+                Console.WriteLine("Did not found decision with id " + id);
+                return;
+            }
+
+            Remove(decision);
+            Console.WriteLine($"Removed decision {decision.Description}");
+        }
+
+                
+        // Add - decisionName1:choice1/choice2/choice3
+        public void AddDecision(string rawInput)
+        {
+            var rawChoices = _parser.ParseChoices(rawInput);
+            var choices = rawChoices.Select(choice => new Choice() {ChoiceText = choice, Id = _choiceSeq++}).ToList();
+
+            var dec = new Decision()
+            {
+                DecisionId = _decisionSeq++,
+                Description = _parser.ParseDecisionDescription(rawInput),
+                Choices = choices
+            };
             _decisions.Add(dec);
+            Console.WriteLine("Decision: " + dec);
         }
 
-        public Decision Find(int id)
+        private Decision Find(int id)
         {
-            return _decisions.Single(dec => dec._decisionId == id);
+            return _decisions.Single(dec => dec.DecisionId == id);
         }
 
-        public void Remove(Decision decision)
+        private void Remove(Decision decision)
         {
             _decisions.Remove(decision);
+        }
+
+        public void PrintDecisions()
+        {
+            _decisions.ForEach(Console.WriteLine);
         }
     }
 }

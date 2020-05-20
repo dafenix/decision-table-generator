@@ -1,22 +1,19 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj",
+    "projectUniqueName": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj",
     "projectName": "DecisionMatrix",
-    "projectPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj",
-    "outputPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/obj/",
+    "projectPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj",
+    "outputPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/obj/",
     "projectStyle": "PackageReference",
-    "fallbackFolders": [
-      "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-    ],
     "originalTargetFrameworks": [
-      "netcoreapp2.2"
+      "netcoreapp3.1"
     ],
     "sources": {
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
-      "netcoreapp2.2": {
+      "netcoreapp3.1": {
         "projectReferences": {}
       }
     },
@@ -27,20 +24,23 @@
     }
   },
   "frameworks": {
-    "netcoreapp2.2": {
-      "dependencies": {
-        "Microsoft.NETCore.App": {
-          "suppressParent": "All",
-          "target": "Package",
-          "version": "[2.2.0, )",
-          "autoReferenced": true
-        }
-      },
+    "netcoreapp3.1": {
       "imports": [
-        "net461"
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
       ],
       "assetTargetFallback": true,
-      "warn": true
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
     }
   }
 }

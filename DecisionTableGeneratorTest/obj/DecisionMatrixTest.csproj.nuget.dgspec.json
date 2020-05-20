@@ -1,32 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGeneratorTest/DecisionMatrixTest.csproj": {}
+    "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGeneratorTest/DecisionMatrixTest.csproj": {}
   },
   "projects": {
-    "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj": {
+    "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj",
+        "projectUniqueName": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj",
         "projectName": "DecisionMatrix",
-        "projectPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj",
-        "packagesPath": "/Users/Daniel/.nuget/packages/",
-        "outputPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/obj/",
+        "projectPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj",
+        "packagesPath": "/Users/dweber/.nuget/packages/",
+        "outputPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/Daniel/.config/NuGet/NuGet.Config"
+          "/Users/dweber/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.2"
+          "netcoreapp3.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.2": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -37,49 +34,49 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.2": {
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
-            }
-          },
+        "netcoreapp3.1": {
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGeneratorTest/DecisionMatrixTest.csproj": {
+    "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGeneratorTest/DecisionMatrixTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGeneratorTest/DecisionMatrixTest.csproj",
+        "projectUniqueName": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGeneratorTest/DecisionMatrixTest.csproj",
         "projectName": "DecisionMatrixTest",
-        "projectPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGeneratorTest/DecisionMatrixTest.csproj",
-        "packagesPath": "/Users/Daniel/.nuget/packages/",
-        "outputPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGeneratorTest/obj/",
+        "projectPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGeneratorTest/DecisionMatrixTest.csproj",
+        "packagesPath": "/Users/dweber/.nuget/packages/",
+        "outputPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGeneratorTest/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/Daniel/.config/NuGet/NuGet.Config"
+          "/Users/dweber/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.2"
+          "netcoreapp3.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.2": {
+          "netcoreapp3.1": {
             "projectReferences": {
-              "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj": {
-                "projectPath": "/Users/Daniel/Documents/workspace-dotnet/DecisionMatrix/DecisionTableGenerator/DecisionMatrix.csproj"
+              "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj": {
+                "projectPath": "/Users/dweber/Documents/Projects/playground/decision-table-generator/DecisionTableGenerator/DecisionMatrix.csproj"
               }
             }
           }
@@ -91,17 +88,11 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.2": {
+        "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.0.1, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.2.0, )",
-              "autoReferenced": true
             },
             "xunit": {
               "target": "Package",
@@ -113,10 +104,21 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
         }
       }
     }
